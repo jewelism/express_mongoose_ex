@@ -2,17 +2,18 @@ var express = require('express');
 var router = express.Router();
 
 const mongo = require('../../db/mongo/config/mongo');
-var SurveyPreview = require('../../db/mongo/models/surveyPreview');
+var SurveyData = require('../../db/mongo/models/surveyData');
 
 router.post('/', async (req, res, next) => {
   try {
-    throw Error('fxxx!');
-    const {author, cardList} = req.body;
+    const {author, surveyType, surveyInfo, surveyCardList} = req.body;
     await mongo();
-    const surveyPreview = new SurveyPreview({
+    const surveyPreview = new SurveyData({
       isActive: true,
       author,
-      cardList,
+      surveyType,
+      surveyInfo,
+      surveyCardList,
     });
     await surveyPreview.save();
     res.status(200).send({ok: true});

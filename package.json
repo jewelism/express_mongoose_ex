@@ -1,5 +1,5 @@
 {
-  "name": "moqa-web-jewelry-server",
+  "name": "express_mongoose_ex",
   "version": "0.0.0",
   "private": true,
   "scripts": {
